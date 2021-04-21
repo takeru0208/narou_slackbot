@@ -17,17 +17,15 @@ def main():
         test_url
     )
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
-    print(response)
-    response2 = requests.get(narou_url, headers=headers)
-    print(response2)
-    sys.exit()
+
+    response = requests.get(narou_url, headers=headers)
+
+
     soup = BeautifulSoup(response.text, 'html.parser')
-    elems = soup.find_all("a", class_="reference internal")
+    elems = soup.find_all("dd", class_="subtitle")
+    print(elems)
     for count, e in enumerate(elems):
         print(e.getText())
-        if count > 10:
-            break
-
 
 if __name__ == '__main__':
     main()
