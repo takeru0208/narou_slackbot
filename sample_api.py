@@ -16,9 +16,9 @@ def main():
     response = requests.get(
         test_url
     )
-    headers
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
     print(response)
-    response2 = requests.get(narou_url)
+    response2 = requests.get(narou_url, headers=headers)
     print(response2)
     sys.exit()
     soup = BeautifulSoup(response.text, 'html.parser')
